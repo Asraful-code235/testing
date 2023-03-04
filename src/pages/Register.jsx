@@ -25,7 +25,7 @@ const Register = () => {
   const loginUser = useMutation({
     mutationFn: async (formData) => {
       const res = await axios.post(
-        'http://localhost:4000/api/v1/register',
+        'https://vercel-server-liart.vercel.app/api/v1/register',
         formData,
         {
           headers: {
