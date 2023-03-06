@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "https://practice-server-swart.vercel.app",
+  "proxy": "https://practice-server-production.up.railway.app/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

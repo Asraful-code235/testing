@@ -24,10 +24,13 @@ const Login = () => {
     error,
   } = useMutation({
     mutationFn: async () => {
-      const response = await axios.post('/api/v1/login', {
-        phone: formData.phone,
-        password: formData.password,
-      });
+      const response = await axios.post(
+        'https://practice-server-production.up.railway.app/api/v1/login',
+        {
+          phone: formData.phone,
+          password: formData.password,
+        }
+      );
       if (response.status !== 200) {
         throw new Error('Server error');
       }

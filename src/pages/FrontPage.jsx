@@ -5,19 +5,17 @@ import { useSelector } from 'react-redux';
 
 async function getUser(token) {
   if (token) {
-    const res = await axios.get('http://localhost:4000/api/v1/user/me', {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const res = await axios.get(
+      'https://practice-server-production.up.railway.app/api/v1/user/me',
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
     console.log(res.data);
     return res.data;
   } else {
     return null;
   }
-}
-
-async function getCart() {
-  const { data } = await axios.get('https://dummyjson.com/carts');
-  return data;
 }
 
 const FrontPage = () => {
@@ -33,11 +31,6 @@ const FrontPage = () => {
     queryKey: ['jwt', token],
     queryFn: () => getUser(token),
     keepPreviousData: true,
-  });
-
-  const { data: cart } = useQuery({
-    queryKey: ['cart'],
-    queryFn: () => getCart(),
   });
 
   useEffect(() => {
@@ -69,7 +62,7 @@ const FrontPage = () => {
     return 'Error loading user';
   }
 
-  console.log(cart);
+  // console.log(cart);
 
   return (
     <div className="p-[4vmax] bg-slate-100 min-h-screen">

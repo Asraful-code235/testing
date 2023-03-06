@@ -24,11 +24,15 @@ const Register = () => {
 
   const loginUser = useMutation({
     mutationFn: async (formData) => {
-      const res = await axios.post('/api/v1/register', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const res = await axios.post(
+        'https://practice-server-production.up.railway.app/api/v1/register',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
       const data = res.data;
 
       if (res.status == 201) {
@@ -46,7 +50,7 @@ const Register = () => {
     },
   });
 
-  console.log(token);
+  // console.log(token);
 
   const handleChange = (e) => {
     if (e.target.name === 'avatar') {
