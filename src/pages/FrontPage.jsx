@@ -73,7 +73,7 @@ const FrontPage = () => {
             {userData.user.name}👋
           </span>
         </h1>
-        <select className="select select-bordered w-full w-28 ">
+        <select className="select select-bordered w-28 ">
           <option disabled selected>
             Today
           </option>
