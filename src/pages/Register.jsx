@@ -24,15 +24,11 @@ const Register = () => {
 
   const loginUser = useMutation({
     mutationFn: async (formData) => {
-      const res = await axios.post(
-        'https://vercel-server-liart.vercel.app/api/v1/register',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        }
-      );
+      const res = await axios.post('/api/v1/register', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
       const data = res.data;
 
       if (res.status == 201) {

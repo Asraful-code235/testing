@@ -24,13 +24,10 @@ const Login = () => {
     error,
   } = useMutation({
     mutationFn: async () => {
-      const response = await axios.post(
-        'https://vercel-server-liart.vercel.app/api/v1/login',
-        {
-          phone: formData.phone,
-          password: formData.password,
-        }
-      );
+      const response = await axios.post('/api/v1/login', {
+        phone: formData.phone,
+        password: formData.password,
+      });
       if (response.status !== 200) {
         throw new Error('Server error');
       }
